@@ -2,8 +2,7 @@ import React from 'react';
 import './styles/App.scss';
 
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Router } from 'react-router-dom';
-import { createMemoryHistory } from 'history';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import axios from 'axios';
 import thunk from 'redux-thunk';
@@ -29,25 +28,23 @@ var store = createStore(
   applyMiddleware(thunk.withExtraArgument(axiosInstance))
 );
 
-const history = createMemoryHistory();
-
 export default class App extends React.Component {
   render() {
-  return (
-    <Provider store={store}>
-      <Router history={history}>
-        <div id="container">
-          <Header />
-          <Route exact path="/" component={Posts} />
-          <Route exact path="/post/:niceTitle" component={Post} />
-          <Route exact path="/posts" component={Posts} />
-          <Route exact path="/posts/page/:page" component={Posts} />
-          <Route exact path="/:niceTitle" component={Page} />
-          <Footer />
-        </div>
-      </Router>
-    </Provider>
-  );
+    return (
+      <Provider store={store}>
+        <BrowserRouter>
+          <div id="container">
+            <Header />
+            <Route exact path="/" component={Posts} />
+            <Route exact path="/post/:niceTitle" component={Post} />
+            <Route exact path="/posts" component={Posts} />
+            <Route exact path="/posts/page/:page" component={Posts} />
+            <Route exact path="/:niceTitle" component={Page} />
+            <Footer />
+          </div>
+        </BrowserRouter>
+      </Provider>
+    );
   }
 }
 
