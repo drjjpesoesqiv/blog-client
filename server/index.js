@@ -21,7 +21,7 @@ app.get('*', (req, res, next) => {
       return res.status(404).end()
     }
     
-    const html = ReactDOMServer.renderToString(<App initialPath={req.path} />);
+    const html = ReactDOMServer.renderToString(<App />);
     
     return res.send(
       htmlData.replace(

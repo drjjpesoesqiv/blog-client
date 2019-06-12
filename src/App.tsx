@@ -2,7 +2,8 @@ import React from 'react';
 import './styles/App.scss';
 
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 
 import axios from 'axios';
 import thunk from 'redux-thunk';
@@ -28,11 +29,13 @@ var store = createStore(
   applyMiddleware(thunk.withExtraArgument(axiosInstance))
 );
 
+const history = createMemoryHistory();
+
 export default class App extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <BrowserRouter>
+        <Router history={history}>
           <div id="container">
             <Header />
             <Route exact path="/" component={Posts} />
@@ -42,7 +45,7 @@ export default class App extends React.Component {
             <Route exact path="/:niceTitle" component={Page} />
             <Footer />
           </div>
-        </BrowserRouter>
+        </Router>
       </Provider>
     );
   }
