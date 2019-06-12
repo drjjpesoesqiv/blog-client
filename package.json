@@ -3,7 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/register": "^7.4.4",
     "axios": "^0.19.0",
+    "express": "^4.17.1",
+    "ignore-styles": "^5.0.1",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
@@ -13,6 +18,8 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-typescript": "^7.3.3",
     "@types/draft-js": "^0.10.32",
     "@types/jest": "24.0.13",
     "@types/node": "12.0.4",
