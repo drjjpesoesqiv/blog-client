@@ -4,11 +4,13 @@ const PORT = 3000;
 const path = require('path');
 const fs = require("fs");
 
-const app = express();
-
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
+import { StaticRouter } from 'react-router-dom';
+
 import App from '../src/App.tsx';
+
+const app = express();
 
 app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
@@ -20,8 +22,12 @@ app.get('*', (req, res, next) => {
       console.error('err', err);
       return res.status(404).end()
     }
-    
-    const html = ReactDOMServer.renderToString(<App />);
+
+    const html = ReactDOMServer.renderToString(
+      <StaticRouter location={req.url}>
+        <App />
+      </StaticRouter>
+    );
     
     return res.send(
       htmlData.replace(
