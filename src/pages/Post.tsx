@@ -11,7 +11,7 @@ interface Props {
   location:any;
   match:any;
   getPostByNiceTitle: (niceTitle:string) => void;
-  _postId:string;
+  _id:string;
   title:string;
   date:string;
   author:string;
@@ -36,7 +36,7 @@ class Post extends React.Component<Props> {
         <br />
         <small className="author">{this.props.author}</small>
         <p className="content">{this.props.content}</p>
-        <Comments _postId={this.props._postId} />
+        <Comments _postId={this.props._id} />
       </div>
     )
   }
@@ -44,7 +44,7 @@ class Post extends React.Component<Props> {
 
 function mapStateToProps({ posts }:any) {
   return {
-    _postId: posts.post._postId,
+    _id: posts.post._id,
     title: posts.post.title,
     date: posts.post.date,
     author: posts.post.author,
