@@ -1,14 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import Comments from '../components/Comments';
 
 import { getPostByNiceTitle } from '../actions/posts';
+import { getComments } from '../actions/comments';
 
 interface Props {
   history:any;
   location:any;
   match:any;
   getPostByNiceTitle: (niceTitle:string) => void;
+  _postId:string;
   title:string;
   date:string;
   author:string;
@@ -33,6 +36,7 @@ class Post extends React.Component<Props> {
         <br />
         <small className="author">{this.props.author}</small>
         <p className="content">{this.props.content}</p>
+        <Comments _postId={this.props._postId} />
       </div>
     )
   }
@@ -40,6 +44,7 @@ class Post extends React.Component<Props> {
 
 function mapStateToProps({ posts }:any) {
   return {
+    _postId: posts.post._postId,
     title: posts.post.title,
     date: posts.post.date,
     author: posts.post.author,

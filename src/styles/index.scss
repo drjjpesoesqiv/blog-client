@@ -30,6 +30,7 @@ header {
 
 footer {
   font-size: small;
+  margin-top: 16px;
 }
 
 h1 {
@@ -71,5 +72,17 @@ ul.posts {
     border-radius: 4px;
     color: #111;
     padding: 16px;
+  }
+
+  .comments {
+    background-color: #1f1f1f;
+    padding: 8px;
+
+    .content {
+      background-color: #3f3f3f;
+      border-radius: 0;
+      color: wheat;
+      padding: 8px;
+    }
   }
 }
