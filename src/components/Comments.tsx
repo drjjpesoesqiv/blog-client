@@ -23,10 +23,6 @@ class Comments extends React.Component<Props,State> {
     super(props);
   }
 
-  componentWillReceiveProps(nextProps:any) {
-    this.props.getComments(nextProps._postId);
-  }
-
   componentWillMount() {
     this.props.getComments(this.props._postId);
   }

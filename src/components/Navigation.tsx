@@ -32,6 +32,11 @@ class Navigation extends React.Component<Props> {
     return(
       <div>
         {links}
+        {
+          this.props.account.username
+            ? <span style={{ float: "right" }}>whoami? {this.props.account.username}</span>
+            : ""
+        }
       </div>
     );
   }
