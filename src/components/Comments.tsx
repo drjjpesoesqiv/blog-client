@@ -25,7 +25,7 @@ class Comments extends React.Component<Props,State> {
   }
 
   componentWillReceiveProps(props:any) {
-    if ( ! this.state.commentsLoaded) {
+    if ( ! this.state.commentsLoaded && props._postId) {
       this.setState({
         commentsLoaded: true
       }, () => this.props.getComments(props._postId));
