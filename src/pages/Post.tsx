@@ -34,7 +34,7 @@ class Post extends React.Component<Props> {
         <small className="date">{this.props.date}</small>
         <br />
         <small className="author">{this.props.author}</small>
-        <p className="content">{this.props.content}</p>
+        <div className="content" dangerouslySetInnerHTML={{ __html: this.props.content }}></div>
         <Comments _postId={this.props._id} />
       </div>
     )

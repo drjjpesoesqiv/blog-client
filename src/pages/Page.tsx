@@ -30,7 +30,7 @@ class Page extends React.Component<Props> {
     return(
       <div>
         <h1>{this.props.title}</h1>
-        <p>{this.props.content}</p>
+        <div className="content" dangerouslySetInnerHTML={{ __html: this.props.content }}></div>
       </div>
     );
   }
