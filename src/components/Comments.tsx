@@ -15,16 +15,21 @@ interface Props {
 }
 
 interface State {
-  comment:string;
+  commentsLoaded:boolean;
 }
 
 class Comments extends React.Component<Props,State> {
   constructor(props:any) {
     super(props);
+    this.state = { commentsLoaded: false }
   }
 
-  componentWillMount() {
-    this.props.getComments(this.props._postId);
+  componentWillReceiveProps(props:any) {
+    if ( ! this.state.commentsLoaded) {
+      this.setState({
+        commentsLoaded: true
+      }, () => this.props.getComments(props._postId));
+    }
   }
 
   render() {
