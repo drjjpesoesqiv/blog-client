@@ -16,6 +16,8 @@ import Footer from './components/Footer';
 import reducers from './reducers';
 
 import './styles/App.scss';
+import AccountLogin from './pages/Account/AccountLogin';
+import AccountRegister from './pages/Account/AccountRegister';
 
 const axiosInstance = axios.create({
   baseURL: 'http://localhost:5000',
@@ -35,6 +37,8 @@ export default class App extends React.Component {
         <div id="container">
           <Header />
           <Route exact path="/" component={Posts} />
+          <Route exact path="/account/login" component={AccountLogin} />
+          <Route exact path="/account/register" component={AccountRegister} />
           <Route exact path="/post/:niceTitle" component={Post} />
           <Route exact path="/posts" component={Posts} />
           <Route exact path="/posts/page/:page" component={Posts} />

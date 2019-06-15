@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 import Comments from '../components/Comments';
 
 import { getPostByNiceTitle } from '../actions/posts';
-import { getComments } from '../actions/comments';
 
 interface Props {
   history:any;

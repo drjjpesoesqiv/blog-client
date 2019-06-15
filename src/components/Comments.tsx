@@ -2,12 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Comment from './Comment';
 
-import { getComments, addComment } from '../actions/comments';
+import CommentForm from './CommentForm';
+import LoginForm from './LoginForm';
+
+import { getComments } from '../actions/comments';
 
 interface Props {
   _postId:string;
   getComments: (_postId:string) => void;
-  addComment: (_postId:string, content:string) => void;
+  account:any;
   comments:[];
 }
 
@@ -18,9 +21,6 @@ interface State {
 class Comments extends React.Component<Props,State> {
   constructor(props:any) {
     super(props);
-    this.state = {
-      comment: ""
-    };
   }
 
   componentWillReceiveProps(nextProps:any) {
@@ -29,18 +29,6 @@ class Comments extends React.Component<Props,State> {
 
   componentWillMount() {
     this.props.getComments(this.props._postId);
-  }
-
-  onSubmitComment = (e:React.FormEvent) => {
-    e.preventDefault();
-    this.props.addComment(this.props._postId, this.state.comment);
-    this.setState({ comment: "" });
-  }
-
-  onCommentChange = (e:any) => {
-    this.setState({
-      comment: e.target.value
-    })
   }
 
   render() {
@@ -56,20 +44,21 @@ class Comments extends React.Component<Props,State> {
     return(
       <div className="comments">
         <div>{comments}</div>
-        <form onSubmit={this.onSubmitComment}>
-          <h4>Submit a comment:</h4>
-          <textarea onChange={this.onCommentChange} value={this.state.comment}></textarea>
-          <button type="submit">Submit</button>
-        </form>
+        {
+          this.props.account.username
+            ? <CommentForm _postId={this.props._postId} />
+            : <LoginForm />
+        }
       </div>
     );
   }
 }
 
-function mapStateToProps({ comments }:any) {
+function mapStateToProps({ account, comments }:any) {
   return {
+    account: account,
     comments: comments
   }
 }
 
-export default connect(mapStateToProps, { getComments, addComment })(Comments);
+export default connect(mapStateToProps, { getComments })(Comments);
