@@ -101,6 +101,8 @@ form {
   input[type="email"],
   input[type="text"],
   input[type="password"] {
+    border: 1px solid cyan;
+    box-shadow: 2px 2px 2px hotpink inset;
     margin-bottom: 8px;
     width: 256px;
   }

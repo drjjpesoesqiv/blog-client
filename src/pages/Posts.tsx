@@ -25,7 +25,7 @@ class Posts extends React.Component<Props> {
 
   changePage = (page:number) => {
     this.props.history.push(`/posts/page/${page}`);
-    this.props.getPostsByPage(this.props.match.params.page);
+    this.props.getPostsByPage(page);
   }
 
   render() {
