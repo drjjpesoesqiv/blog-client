@@ -19,6 +19,8 @@ import './styles/App.scss';
 import AccountLogin from './pages/Account/AccountLogin';
 import AccountRegister from './pages/Account/AccountRegister';
 
+import { accountHydrate } from './actions/account';
+
 const axiosInstance = axios.create({
   baseURL: 'http://localhost:5000',
   timeout: 1000,
@@ -32,6 +34,7 @@ var store = createStore(
 
 export default class App extends React.Component {
   render() {
+    store.dispatch(accountHydrate());
     return (
       <Provider store={store}>
         <div id="container">

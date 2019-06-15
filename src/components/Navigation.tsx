@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { getNavigationItems } from '../actions/navigation';
-import { accountLogin } from '../actions/account';
+import { accountLogout } from '../actions/account';
 
 interface Props {
   getNavigationItems: () => void;
+  accountLogout: () => void;
   account:any;
   items:any;
 }
@@ -24,6 +25,8 @@ class Navigation extends React.Component<Props> {
     if ( ! this.props.account.username) {
       links.push(<Link key="register" to="/account/register">Register</Link>);
       links.push(<Link key="login" to="/account/login">Login</Link>);
+    } else {
+      links.push(<Link key="logout" to="/account/login" onClick={this.props.accountLogout}>Logout</Link>)
     }
 
     return(
@@ -41,4 +44,4 @@ function mapStateToProps({ account, navigation }:any) {
   }
 }
 
-export default connect(mapStateToProps, { getNavigationItems })(Navigation);
+export default connect(mapStateToProps, { getNavigationItems, accountLogout })(Navigation);
