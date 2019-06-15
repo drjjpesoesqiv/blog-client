@@ -20,7 +20,7 @@ export const addComment = (_postId:string, content:string) =>
   (dispatch:Function, getState:Function, axios:AxiosInstance) => {
     axios.put(`/comments/${_postId}`, { content: content })
       .then((response:AxiosResponse) => {
-        getComments(_postId);
+        dispatch(getComments(_postId));
       })
       .catch((err:AxiosError) => {
       });
