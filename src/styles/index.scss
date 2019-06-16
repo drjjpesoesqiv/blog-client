@@ -72,6 +72,11 @@ ul.posts {
     border-radius: 4px;
     color: #111;
     padding: 16px;
+
+    p {
+      margin: 0px;
+      min-height: 1.25em;
+    }
   }
 
   .comments {
