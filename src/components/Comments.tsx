@@ -38,6 +38,7 @@ class Comments extends React.Component<Props,State> {
         <Comment
           key={comment._id}
           _authorId={comment._authorId}
+          username={comment.username}
           date={comment.date}
           content={comment.content} />
       );
