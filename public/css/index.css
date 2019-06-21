@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #111;
+  color: #eee;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+#container {
+  margin: 0px auto;
+  max-width: 640px;
+  padding: 16px;
+}
+
+header a {
+  color: lightcyan;
+  margin: 0px 4px;
+}
+
+footer {
+  font-size: small;
+  margin-top: 16px;
+}
+
+h1 {
+  color: lightgreen;
+  margin-bottom: 2px;
+}
+
+ul.posts {
+  list-style: none;
+}
+ul.posts a {
+  color: pink;
+  cursor: pointer;
+  margin: 4px;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 8px;
+}
+.pagination .link {
+  color: yellow;
+  margin: 0px 4px;
+  text-decoration: underline;
+}
+
+.post .author {
+  color: yellow;
+}
+.post .date {
+  color: pink;
+}
+.post .content {
+  background-color: #ccc;
+  border-radius: 4px;
+  color: #111;
+  padding: 16px;
+}
+.post .content p {
+  margin: 0px;
+  min-height: 1.25em;
+}
+.post .comments {
+  background-color: #1f1f1f;
+  padding: 8px;
+}
+.post .comments .content {
+  background-color: #3f3f3f;
+  border-radius: 0;
+  color: wheat;
+  padding: 8px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+  width: 80%;
+}
+form h4 {
+  color: hotpink;
+  margin-bottom: 8px;
+}
+form input[type=email],
+form input[type=text],
+form input[type=password] {
+  border: 1px solid cyan;
+  box-shadow: 2px 2px 2px hotpink inset;
+  margin-bottom: 8px;
+  width: 256px;
+}
+form input, form textarea {
+  border-radius: 16px;
+  padding: 8px;
+}
+form textarea {
+  border-radius: 16px;
+  height: 96px;
+  margin: 0px auto;
+  padding: 8px;
+  width: 100%;
+}
+form button {
+  border-radius: 4px;
+  margin: 16px;
+  width: 96px;
+}
+
+/*# sourceMappingURL=index.css.map */
